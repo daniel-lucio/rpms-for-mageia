@@ -3,19 +3,21 @@
 %define        __os_install_post %{_dbpath}/brp-compress
 %ifarch %ix86
 %define executable_name gunthy-linx86
+%define tulind_name node-v57-linux-x64
 %endif
 %ifarch x86_64 amd64 ia32e
 %define executable_name gunthy-linx64
+%define tulind_name node-v57-linux-x64
 %endif
 
 Name:           gunbot
-Version:        3.3.3
+Version:        3.3.4
 Release:        %mkrel 1
 Summary:        Bot trader
 License:        Commercial
 Group:          Networking/Other
 URL:            https://github.com/GuntharDeNiro/BTCT
-Source0:        Gunbot_v3.3.3_core_allOs.zip
+Source0:        Gunbot_v3.3.4_allOs.zip
 Source2:        gunbot-tmpfiles.conf
 BuildRequires:  unzip
 BuildRequires:  systemd
@@ -26,16 +28,25 @@ Requires(preun):  rpm-helper >= %{rpmhelper_required_version}
 Requires(postun): rpm-helper >= %{rpmhelper_required_version}
 
 %description
-Poloniex, Craken, Bittrex trader
+Poloniex, Kraken, Bittrex trader
 
 %prep
-%setup -n Gunbot_v3.3.3_core_allOs
+rm -rf *
+%{__mkdir_p} zipball
+pushd zipball
+unzip %{SOURCE0}
+mv %{executable_name} ..
+mv config.js ../config.js
+mv tulind ..
+popd
+rm -rf zipball
 
 %install
-%{__install} -d %{buildroot}/opt/gunbot
+%{__install} -d %{buildroot}/opt/gunbot/tulind/lib/binding/Release/%{tulind_name}
 %{__install} -d %{buildroot}%{_unitdir}
 
 %{__install} -p -m 0755 %{executable_name} %{buildroot}/opt/gunbot
+%{__install} -p -m 0755 tulind/lib/binding/Release/%{tulind_name}/tulind.node %{buildroot}/opt/gunbot/tulind/lib/binding/Release/%{tulind_name}
 %{__install} -p -m 0644 config.js %{buildroot}/opt/gunbot
 %{__install} -D -p -m 0644 %{SOURCE2} %{buildroot}%{_tmpfilesdir}/%{name}.conf
 
@@ -78,3 +89,4 @@ EOF
 %attr(-, gunbot, gunbot) %dir /opt/gunbot
 %config(noreplace) %attr(-, gunbot, gunbot) /opt/gunbot/config.js
 /opt/gunbot/%{executable_name}
+/opt/gunbot/tulind/lib/binding/Release/%{tulind_name}/tulind.node
