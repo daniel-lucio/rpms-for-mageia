@@ -77,12 +77,12 @@ go get -u github.com/NebulousLabs/Sia/...
 %{__mkdir_p} %{buildroot}/%{_bindir}
 %{__mkdir_p} %{buildroot}/%{_sbindir}
 
-%{__mkdir_p} %{buildroot}/%{_sysconfdir}/sysconfig
 export GOPATH=$(pwd)
 %{__install} -p -m 0755 $GOPATH/bin/siac %{buildroot}%{_bindir}
 %{__install} -p -m 0755 $GOPATH/bin/siad %{buildroot}%{_sbindir}
 
-%{__install} %{SOURCE3} %{buildroot}/etc/sysconfig/%{name}
+%{__mkdir_p} %{buildroot}/%{_sysconfdir}/sysconfig
+%{__install} %{SOURCE3} %{buildroot}/%{_sysconfdir}/sysconfig/%{name}
 %{__mkdir_p} %{buildroot}%{_unitdir}
 %{__install} -p -m 0644 %{SOURCE1} %{buildroot}%{_unitdir}
 %{__install} -D -p -m 0644 %{SOURCE4} %{buildroot}%{_tmpfilesdir}/%{name}.conf
