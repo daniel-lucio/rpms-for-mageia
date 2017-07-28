@@ -110,6 +110,7 @@ fi
 %{_unitdir}/%{name}.service
 %{_sbindir}/*
 %{_tmpfilesdir}/%{name}.conf
+%dir %attr(0750, sia,sia) %{_localstatedir}/lib/sia
 
 %files client
 %{_bindir}/*
