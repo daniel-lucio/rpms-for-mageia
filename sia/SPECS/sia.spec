@@ -12,7 +12,7 @@
 
 Name:           sia
 Version:        1.3.0
-Release:        %mkrel 0.20170714
+Release:        %mkrel 1
 Summary:        Blockchain-based marketplace for file storage
 License:        MIT
 URL:            https://github.com/NebulousLabs/Sia/
@@ -54,6 +54,7 @@ SIA server daemon
 %package        client
 Summary:        Blockchain-based marketplace for file storage client
 Group:          System/Servers
+Requires:       bash-completion
 
 %description    client
 Sia is a new decentralized cloud storage platform that radically alters the
@@ -80,7 +81,13 @@ go get -u github.com/NebulousLabs/Sia/...
 export GOPATH=$(pwd)
 %{__install} -p -m 0755 $GOPATH/bin/siac %{buildroot}%{_bindir}
 %{__install} -p -m 0755 $GOPATH/bin/siad %{buildroot}%{_sbindir}
+%{__mkdir_p} %{buildroot}/%{_sysconfdir}/bash_completion.d
 
+pushd $GOPATH/bin
+PATH=.:$PATH siac bash-completion siac.bash
+popd
+
+%{__install} $GOPATH/bin/siac.bash %{buildroot}/%{_sysconfdir}/bash_completion.d/siac
 %{__mkdir_p} %{buildroot}/%{_sysconfdir}/sysconfig
 %{__install} %{SOURCE3} %{buildroot}/%{_sysconfdir}/sysconfig/%{name}
 %{__mkdir_p} %{buildroot}%{_unitdir}
@@ -114,3 +121,4 @@ fi
 
 %files client
 %{_bindir}/*
+%{_sysconfdir}/bash_completion.d/siac
