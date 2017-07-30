@@ -12,7 +12,7 @@
 
 Name:           gunbot
 Version:        3.3.4
-Release:        %mkrel 1
+Release:        %mkrel 3
 Summary:        Bot trader
 License:        Commercial
 Group:          Networking/Other
@@ -59,6 +59,7 @@ After=network.target remote-fs.target nss-lookup.target
 Type=simple
 User=gunbot
 WorkingDirectory=/opt/gunbot
+Environment=NODE_TLS_REJECT_UNAUTHORIZED=0
 PIDFile=/run/gunbot/gunbot-%i.pid
 ExecStart=/opt/gunbot/%{executable_name}
 ExecStop=/usr/bin/kill \$(/run/gunbot/gunbot-%i.pid)
