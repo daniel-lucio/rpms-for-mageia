@@ -11,13 +11,13 @@
 %endif
 
 Name:           gunbot
-Version:        3.3.4
-Release:        %mkrel 3
+Version:        3.3.5
+Release:        %mkrel 1
 Summary:        Bot trader
 License:        Commercial
 Group:          Networking/Other
 URL:            https://github.com/GuntharDeNiro/BTCT
-Source0:        Gunbot_v3.3.4_allOs.zip
+Source0:        Gunbot_v3.3.5_allOs.zip
 Source2:        gunbot-tmpfiles.conf
 BuildRequires:  unzip
 BuildRequires:  systemd
