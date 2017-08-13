@@ -11,13 +11,13 @@
 %endif
 
 Name:           gunbot
-Version:        3.3.5
-Release:        %mkrel 1
+Version:        4.0.1
+Release:        %mkrel 2
 Summary:        Bot trader
 License:        Commercial
 Group:          Networking/Other
 URL:            https://github.com/GuntharDeNiro/BTCT
-Source0:        Gunbot_v3.3.5_allOs.zip
+Source0:        GUNBOT_v4.0.1_core_patched.zip
 Source2:        gunbot-tmpfiles.conf
 BuildRequires:  unzip
 BuildRequires:  systemd
@@ -31,15 +31,7 @@ Requires(postun): rpm-helper >= %{rpmhelper_required_version}
 Poloniex, Kraken, Bittrex trader
 
 %prep
-rm -rf *
-%{__mkdir_p} zipball
-pushd zipball
-unzip %{SOURCE0}
-mv %{executable_name} ..
-mv config.js ../config.js
-mv tulind ..
-popd
-rm -rf zipball
+%setup -n GUNBOT_v4.0.1_core
 
 %install
 %{__install} -d %{buildroot}/opt/gunbot/tulind/lib/binding/Release/%{tulind_name}
