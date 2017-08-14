@@ -11,13 +11,13 @@
 %endif
 
 Name:           gunbot
-Version:        4.0.1
-Release:        %mkrel 2
+Version:        4.0.2
+Release:        %mkrel 1
 Summary:        Bot trader
 License:        Commercial
 Group:          Networking/Other
 URL:            https://github.com/GuntharDeNiro/BTCT
-Source0:        GUNBOT_v4.0.1_core_patched.zip
+Source0:        https://github.com/GuntharDeNiro/BTCT/releases/download/4.0.2/Gunbot_v4.0.2_core_allOs.zip
 Source2:        gunbot-tmpfiles.conf
 BuildRequires:  unzip
 BuildRequires:  systemd
@@ -28,10 +28,10 @@ Requires(preun):  rpm-helper >= %{rpmhelper_required_version}
 Requires(postun): rpm-helper >= %{rpmhelper_required_version}
 
 %description
-Poloniex, Kraken, Bittrex trader
+Poloniex, Kraken, Bittrex, Cryptopia trader
 
 %prep
-%setup -n GUNBOT_v4.0.1_core
+%setup -n Gunbot_v4.0.2_core_allOs
 
 %install
 %{__install} -d %{buildroot}/opt/gunbot/tulind/lib/binding/Release/%{tulind_name}
