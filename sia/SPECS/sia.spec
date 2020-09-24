@@ -11,7 +11,7 @@
 %endif
 
 Name:           sia
-Version:        1.3.7
+Version:        1.5.0
 Release:        %mkrel 1
 Summary:        Blockchain-based marketplace for file storage
 License:        MIT
