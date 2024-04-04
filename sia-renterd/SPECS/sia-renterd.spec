@@ -16,7 +16,7 @@
 Name:           sia-renterd
 Version:        1.0.6
 Release:        %mkrel 1
-Summary:        Blockchain-based marketplace for file storage - Host daemon
+Summary:        Blockchain-based marketplace for file storage - Renter daemon
 License:        MIT
 URL:            https://github.com/SiaFoundation/renterd
 Group:          System/Servers
