@@ -14,13 +14,13 @@
 %define siagroup sia
 
 Name:           sia-renterd
-Version:        1.0.5
+Version:        1.0.6
 Release:        %mkrel 1
 Summary:        Blockchain-based marketplace for file storage - Host daemon
 License:        MIT
 URL:            https://github.com/SiaFoundation/renterd
 Group:          System/Servers
-Source0:	renterd-1.0.5.tar.gz
+Source0:	  renterd-%{version}.tar.gz
 Source1:        sia-renterd.service
 Source3:        sia-renterd.sysconfig
 Source4:        sia-renterd-tmpfiles.conf
