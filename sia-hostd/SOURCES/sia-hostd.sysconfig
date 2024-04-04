@@ -1,0 +1,3 @@
+SIAD_PARAMS='--sia-directory /var/lib/sia/hostd -openui=false'
+#HOSTD_API_PASSWORD=
+#HOSTD_SEED=

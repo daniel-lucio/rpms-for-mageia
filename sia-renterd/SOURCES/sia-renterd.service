@@ -1,0 +1,17 @@
+[Unit]
+Description=Blockchain-based marketplace for file storage - renterd
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/sysconfig/sia-renterd
+WorkingDirectory=/var/lib/sia/renterd
+ExecStart=/usr/sbin/sia-renterd $SIAD_PARAMS 
+User=sia
+Group=sia
+Restart=always
+RestartSec=15
+ProtectHome=false
+
+[Install]
+WantedBy=multi-user.target

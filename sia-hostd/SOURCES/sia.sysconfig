@@ -1,0 +1,1 @@
+SIAD_PARAMS='--sia-directory /var/lib/sia/'

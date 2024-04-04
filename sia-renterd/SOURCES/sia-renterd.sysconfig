@@ -1,0 +1,3 @@
+SIAD_PARAMS='--directory /var/lib/sia/renterd'
+#HOSTD_API_PASSWORD=
+#HOSTD_SEED=
