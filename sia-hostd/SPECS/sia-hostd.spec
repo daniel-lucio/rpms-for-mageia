@@ -14,7 +14,7 @@
 %define siagroup sia
 
 Name:           sia-hostd
-Version:        1.1.0
+Version:        1.1.2
 Release:        %mkrel 1
 Summary:        Blockchain-based marketplace for file storage - Host daemon
 License:        MIT
