@@ -14,7 +14,7 @@
 %define siagroup sia
 
 Name:           sia-renterd
-Version:        1.0.7
+Version:        1.0.8
 Release:        %mkrel 1
 Summary:        Blockchain-based marketplace for file storage - Renter daemon
 License:        MIT
